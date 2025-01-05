@@ -27,14 +27,7 @@ export class DoctorsComponent implements OnInit {
     this.getDoctors();
 
     // Fetch slots data when the component is initialized
-    this.slotService.getSlots().subscribe({
-      next: (data: any) => {
-        this.slots = data;
-      },
-      error: (err) => {
-        console.error('Error fetching slots:', err);
-      }
-    });
+    this.getSlots();
   }
 
   // Method to select a doctor
@@ -93,9 +86,10 @@ bookAppointment(): void {
         // Reset selected slot after booking
         this.selectedSlot.is_selected = false;
         
-        setTimeout(() => {
-          location.reload(); 
-        }, 3500); 
+        // setTimeout(() => {
+        //   location.reload(); 
+        // }, 3500); 
+        this.getSlots();
         console.log(this.selectedSlot);
       },
       error: (err) => {
@@ -137,6 +131,7 @@ bookAppointment(): void {
   closeModal(): void {
     this.isModalOpen = false;
     this.newDoctor = { name: '', qualification: '', description: '', image_url: '' }; // Reset the form
+    this.getDoctors();
   }
 
   // Method to add a new doctor
@@ -170,6 +165,17 @@ bookAppointment(): void {
       },
       error: (err) => {
         console.error('Error fetching doctors:', err);
+      }
+    });
+  }
+
+  getSlots() {
+    this.slotService.getSlots().subscribe({
+      next: (data: any) => {
+        this.slots = data;
+      },
+      error: (err) => {
+        console.error('Error fetching slots:', err);
       }
     });
   }
