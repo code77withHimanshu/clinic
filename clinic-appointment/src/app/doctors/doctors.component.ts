@@ -93,9 +93,9 @@ bookAppointment(): void {
         // Reset selected slot after booking
         this.selectedSlot.is_selected = false;
         
-        // setTimeout(() => {
-        //   location.reload(); 
-        // }, 3500); 
+        setTimeout(() => {
+          location.reload(); 
+        }, 3500); 
         console.log(this.selectedSlot);
       },
       error: (err) => {
