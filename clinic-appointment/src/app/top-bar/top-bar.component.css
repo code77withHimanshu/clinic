@@ -1,0 +1,71 @@
+.top {
+    display: flex;
+    align-items: center;
+    background-color: rgb(164, 164, 231);   
+    color: black;  /* White text */
+    font-size: 16px;  /* Text size */
+    font-weight: bold;
+    padding: 10px 20px;  /* Padding inside the button */
+    border-radius: 5px;  /* Rounded corners */
+    border: none;  /* No border */
+    cursor: pointer;  /* Pointer cursor on hover */
+    transition: background-color 0.3s ease;  /* Smooth transition for background color */
+    text-decoration: none;  /* Remove underline if it's a link */
+    width: 100%;  
+  }
+  
+  .top span {
+    display: inline-flex;
+    gap: 8px;  /* Space between the temperature and time */
+    align-items: center;
+  }
+  
+  .top:hover {
+    background-color: rgb(164, 164, 231);  
+  }
+  
+  .top:focus {
+    outline: none;  /* Remove outline when focused */
+  }
+  
+  .top span .weather-icon {
+    margin-right: 8px;  /* Add space if you use icons */
+  }
+  
+  .modal {
+    display: block; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.4); 
+  }
+
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 60%; 
+    overflow-y: auto;
+    border-radius: 8px; /* Added border radius for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
+  }
+
+  .close-btn {
+    color: #aaa;
+    float: right ; 
+    font-size: 28px; 
+    font-weight: bold; 
+  }
+  
+  .close-btn:hover,
+  .close-btn:focus {
+    color: black; 
+    text-decoration: none; 
+    cursor: pointer; 
+  }

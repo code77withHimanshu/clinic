@@ -1,0 +1,19 @@
+# Ignore build and node-related folders
+/node_modules
+/dist
+/tmp
+/out-tsc
+
+# IDE and editor files
+.idea/
+.vscode/
+.project
+.classpath
+
+# Ignore logs and temporary files
+npm-debug.log
+yarn-error.log
+
+# Other unnecessary files
+.DS_Store
+Thumbs.db
