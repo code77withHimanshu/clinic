@@ -3,10 +3,11 @@ import { HttpClient } from '@angular/common/http';
 // import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { interval, Subscription } from 'rxjs';
+import { DisplayTimeComponent } from '../display-time/display-time.component';
 
 @Component({
   selector: 'app-top-bar',
-  imports: [CommonModule],
+  imports: [CommonModule, DisplayTimeComponent],
   templateUrl: './top-bar.component.html',
   styleUrls: ['./top-bar.component.css']
 })
