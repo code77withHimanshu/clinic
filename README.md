@@ -6,7 +6,7 @@ It also lets users to create and delete doctors.
 
 ### Step-1
 Clone the repository and open in VS code.
- - `git clone git@github.com:code77withHimanshu/clinic.git`
+ - `git clone -b master git@github.com:code77withHimanshu/clinic.git`
 
 Note: The database is deployed in MongoDB Atlas which contains doctors and slots data.
 
