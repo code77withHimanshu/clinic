@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { DoctorsComponent } from './doctors/doctors.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
-import { WeatherComponent } from './weather/weather.component';
 
 export const routes: Routes = [
     {
@@ -17,8 +16,4 @@ export const routes: Routes = [
         path:'top-bar',
         component: TopBarComponent
     },
-    {
-        path:'weather',
-        component: WeatherComponent
-    }
 ];
