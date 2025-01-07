@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     background-color: rgb(164, 164, 231);   
-    color: black;  /* White text */
+    color: black;  
     font-size: 16px;  /* Text size */
     font-weight: bold;
     padding: 10px 20px;  /* Padding inside the button */
@@ -21,7 +21,7 @@
   }
   
   .top:hover {
-    background-color: rgb(164, 164, 231);  
+    background-color: rgb(119, 119, 182);  
   }
   
   .top:focus {
@@ -30,6 +30,31 @@
   
   .top span .weather-icon {
     margin-right: 8px;  /* Add space if you use icons */
+  }
+
+  .top-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+  }
+
+  .top-button {
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(164, 164, 231); 
+    font-weight: bold;
+    padding-left: 14px;
+    padding-right: 14px;
+    
+  }
+
+  .time {
+    text-align: right;
+    font-weight: bold;
   }
   
   .modal {
@@ -52,8 +77,29 @@
     width: 80%;
     height: 60%; 
     overflow-y: auto;
-    border-radius: 8px; /* Added border radius for a softer look */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  }
+
+  .weather-table {
+    width: 100%;
+    border-collapse: collapse; 
+    margin: 10px 0;
+  }
+  
+  .weather-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; 
+  }
+  
+  .weather-table td strong {
+    font-weight: bold;
+  }
+
+  .forecast {
+    padding: 8px;
+    border-bottom: 1px solid #ddd; 
   }
 
   .close-btn {
@@ -61,6 +107,7 @@
     float: right ; 
     font-size: 28px; 
     font-weight: bold; 
+    text-align: right;
   }
   
   .close-btn:hover,

@@ -51,7 +51,7 @@ export class TopBarComponent implements OnInit, OnDestroy {
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${this.lat}&lon=${this.lon}&appid=${this.apiKey}&units=metric`;
     this.http.get<any>(url).subscribe({
       next: (data) => {
-        this.currentTemp = data.main.temp; // Extract current temperature
+        this.currentTemp = Math.floor(data.main.temp); // Extract current temperature
       },
       error: (err) => {
         console.error('Error fetching weather data:', err);
@@ -63,14 +63,14 @@ export class TopBarComponent implements OnInit, OnDestroy {
     const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${this.lat}&lon=${this.lon}&appid=${this.apiKey}&units=metric`;
     this.http.get<any>(url).subscribe({
       next: (data) => {
-        // Get the forecast for the next 5 days, 3-hour intervals
-        this.hourlyForecast = data.list.slice(0, 42).map((item: any) => ({
+        // Get the forecast for the next 4 days, 3-hour intervals
+        this.hourlyForecast = data.list.slice(0, 34).map((item: any) => ({
           date: this.formatDate(item.dt),
           weather: item.weather[0].main,
-          temp: `${item.main.temp}°C`,
+          temp: `${Math.floor(item.main.temp)} C`,
           humidity: `${item.main.humidity}%`,
-          minTemp: `${item.main.temp_min}°C`,
-          maxTemp: `${item.main.temp_max}°C`,
+          minTemp: `${Math.floor(item.main.temp_min)} C`,
+          maxTemp: `${Math.floor(item.main.temp_max)} C`,
         }));
       },
       error: (err) => {
