@@ -295,6 +295,11 @@
     color: white;
   }
 
+  .doctors-list.selected {
+    background-color: blue;
+    color: white;
+  }
+
   .delete-doctor {
     background-color: white;
     border: none;

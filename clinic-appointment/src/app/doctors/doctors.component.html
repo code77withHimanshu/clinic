@@ -16,7 +16,7 @@
       </div>
       <ul>
         <li *ngFor="let doctor of doctors">
-          <div class="doctors-list">
+          <div class="doctors-list" [ngClass]="{ 'selected': doctor === selectedDoctor }">
             <button class="select-doctor" (click)="selectDoctor(doctor)">
               {{ doctor.name }}
             </button>
