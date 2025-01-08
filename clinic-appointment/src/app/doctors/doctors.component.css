@@ -36,11 +36,43 @@
     background-color: #fff;
   }
 
-  /* .morning {
+  .inner-slots {
+    flex: 3;
     display: flex;
-    flex-direction: row;
-    gap: 10px;
-  } */
+    border: none;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    font-weight: 600;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 24px;
+    color: #a9a9a9;
+  }
+
+  .inner-doctors {
+    flex: 1;
+    display: flex;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    font-weight: 600;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 24px;
+    color: #a9a9a9;
+  }
+
+  .border-line {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+  }
+
 
   .morning {
     display: flex;
@@ -73,13 +105,6 @@
   .evening div {
     flex: 1 1 calc(16.66% - 20px); /* Ensure 6 elements per row, adjust for gap */
     box-sizing: border-box; /* Prevent padding from affecting the width */
-  }
-
-  .inner-slots {
-    display: flex;
-    border: none;
-    align-items: center;
-    justify-content: center;
   }
 
   

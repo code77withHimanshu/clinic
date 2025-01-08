@@ -30,7 +30,7 @@
         </li>
       </ul>
     </div>
-    <div class="doctors" *ngIf="doctors.length === 0">
+    <div class="inner-doctors" *ngIf="doctors.length === 0">
       <p>No doctors available.</p>
     </div>
   
@@ -63,7 +63,7 @@
       </div>
     </div>
   
-    <div class="slots">
+    <div class="slots" *ngIf="selectedDoctor">
       <div class="doctor-details" *ngIf="selectedDoctor">
         <div class="image">
           <img [src]="selectedDoctor.image_url" alt="Doctor's Image" class="doctor-image" />
@@ -73,6 +73,9 @@
           <p>{{ selectedDoctor.qualification }}</p>
           <p><strong>{{ selectedDoctor.description }}</strong></p>
         </div>
+      </div>
+      <div class="border-line">
+
       </div>
       <div *ngIf="slots[0]?.morning?.slots?.length > 0 && selectedDoctor">
         <h3>Morning</h3>
@@ -144,9 +147,9 @@
         </ng-container>
       </div>
     </div>
-    <!-- <div class="inner-slots" *ngIf="!selectedDoctor">
+    <div class="inner-slots" *ngIf="!selectedDoctor">
       <p>Please select a doctor to book an appointment.</p>
-    </div> -->
+    </div>
   </div>
 </div>
 
