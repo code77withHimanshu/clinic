@@ -129,9 +129,18 @@
     border-radius: 8px; /* Added border radius for a softer look */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
   }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between; /* Positions elements at opposite ends */
+    align-items: center; /* Aligns the heading and close button vertically */
+    margin-bottom: 10px; /* Adds space below the header */
+  }
   
   .close-btn {
-    color: #aaa;
+    color: red;
+    background-color: rgb(245, 240, 240);
+    padding: 5px;
     float: right ; 
     font-size: 28px; 
     font-weight: bold; 
@@ -140,12 +149,13 @@
 
   .create-doctor {
     padding-bottom: 20px;
-    border-bottom: 1px solid #ddd; 
+    /* border-bottom: 1px solid #ddd;  */
   }
   
   .close-btn:hover,
   .close-btn:focus {
-    color: black; 
+    color: white; 
+    background-color: red;
     text-decoration: none; 
     cursor: pointer; 
   }

@@ -99,11 +99,21 @@
 
   .forecast {
     padding: 8px;
-    border-bottom: 1px solid #ddd; 
+    /* border-bottom: 1px solid #ddd;  */
   }
 
+  .modal-header {
+    display: flex;
+    background-color: white;
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 10px; 
+  }
+  
   .close-btn {
-    color: #aaa;
+    color: red;
+    background-color: rgb(245, 240, 240);
+    padding: 5px;
     float: right ; 
     font-size: 28px; 
     font-weight: bold; 
@@ -112,7 +122,8 @@
   
   .close-btn:hover,
   .close-btn:focus {
-    color: black; 
+    color: white; 
+    background-color: red;
     text-decoration: none; 
     cursor: pointer; 
   }
