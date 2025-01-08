@@ -115,6 +115,7 @@ bookAppointment(): void {
 
 
   isModalOpen = false;  // Controls the visibility of the modal
+  isSlotModalOpen = false;
   newDoctor = {  // Holds the data for the new doctor
     name: '',
     qualification: '',
@@ -122,9 +123,27 @@ bookAppointment(): void {
     image_url: ''
   };
 
+  period:any;
+
+  newSlot = {
+    time: '',   // Specific time for the slot (e.g., "09:00 AM")
+    is_selected: false, // Default value for new slots
+    is_occupied: false  // Default value for new slots
+  };
+  
   // Method to open the modal
   openModal(): void {
     this.isModalOpen = true;
+  }
+
+  openSlotModal(): void {
+    this.isSlotModalOpen = true;
+  }
+
+  closeSlotModal(): void {
+    this.isSlotModalOpen = false;
+    this.newSlot = { time: '', is_selected: false, is_occupied: false}; // Reset the form
+    this.getSlots();
   }
 
   // Method to close the modal
@@ -146,6 +165,46 @@ bookAppointment(): void {
       alert('Please fill in all required fields!');
     }
   }
+
+  addSlot(): void {
+    if (this.period && this.newSlot.time) {
+      // Call the service to add the new slot
+      this.slotService.addSlot(this.period, this.newSlot).subscribe(
+        updatedSlots => {
+          this.slots = updatedSlots; // Update the slots list with the response
+          alert('Slot added successfully!');
+          this.getSlots();
+          // Reset the form fields
+          this.period = '';
+          this.newSlot = {
+            time: '',
+            is_selected: false,
+            is_occupied: false
+          };
+        },
+        error => {
+          console.error('Error adding slot:', error);
+          alert('An error occurred while adding the slot.');
+        }
+      );
+    } else {
+      alert('Please fill in all required fields!');
+    }
+  }
+
+  deleteSlot() {
+    if (confirm('Are you sure you want to delete this slot?')) {
+      const period = this.selectedSlot.period; // Get period from selected slot
+      const slotTime = this.selectedSlot.time; // Get time from selected slot
+  
+      this.slotService.deleteSlot(period, slotTime).subscribe(() => {
+        this.getSlots(); // Fetch the updated list of slots
+      });
+    }
+  }
+  
+  
+  
 
   // Method to delete a doctor
   deleteDoctor(doctorId: string) {

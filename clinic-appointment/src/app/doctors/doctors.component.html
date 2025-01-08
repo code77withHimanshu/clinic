@@ -29,6 +29,9 @@
           </div>
         </li>
       </ul>
+      <button (click)="openSlotModal()">
+        Create Slot
+      </button>
     </div>
     <div class="inner-doctors" *ngIf="doctors.length === 0">
       <p>No doctors available.</p>
@@ -62,6 +65,36 @@
         </form>
       </div>
     </div>
+
+    <div *ngIf="isSlotModalOpen" class="slot-modal-overlay">
+      <div class="slot-modal">
+        <span (click)="closeSlotModal()" class="close-btn">&times;</span>
+        <div class="new slot">
+          <form (ngSubmit)="addSlot()">
+            <div class="form-group">
+              <label for="time_of_day">Time of Day</label>
+              <select id="time_of_day" [(ngModel)]="period" name="time_of_day" required>
+                <option value="morning">Morning</option>
+                <option value="afternoon">Afternoon</option>
+                <option value="evening">Evening</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="slot_time">Slot</label>
+              <input
+                type="text"
+                id="slot_time"
+                [(ngModel)]="newSlot.time"
+                name="slot_time"
+                required
+              />
+            </div>
+            <button type="submit" class="add-slot-button">Create Slot</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    
   
     <div class="slots" *ngIf="selectedDoctor">
       <div class="doctor-details" *ngIf="selectedDoctor">
@@ -127,6 +160,9 @@
           Book Appointment
         </button>
       </div>
+      <button class="delete-slot" (click)="deleteSlot()" [disabled]="!selectedSlot">
+        Delete Slot
+      </button>
       <div *ngIf="feedbackMessage" class="feedback-message" [ngClass]="{ success: isFeedbackSuccess, error: !isFeedbackSuccess }">
         
         <ng-container *ngIf="isFeedbackSuccess">

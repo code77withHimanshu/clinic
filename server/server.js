@@ -110,6 +110,63 @@ app.put('/api/slots/update', async (req, res) => {
       res.status(500).send('Error updating slot');
     }
   });
+
+
+  app.post('/api/slots/add', async (req, res) => {
+    const { period, newSlot } = req.body;
+  
+    console.log('Request body:', req.body);
+  
+    // Validate required fields
+    if (!period || !newSlot || !newSlot.time) {
+      return res.status(400).send('Invalid request. "period" and "newSlot.time" are required.');
+    }
+  
+    try {
+      // Update the specific period's slots array
+      const updatedDocument = await Slot.findOneAndUpdate(
+        { [`${period}`]: { $exists: true } }, // Ensure the period exists
+        { $push: { [`${period}.slots`]: newSlot } }, // Push the new slot to the appropriate array
+        { new: true } // Return the updated document
+      );
+  
+      if (!updatedDocument) {
+        return res.status(404).send(`Period "${period}" not found`);
+      }
+  
+      console.log('Slot added successfully:', newSlot);
+      res.status(201).json(updatedDocument); // Return the updated document
+    } catch (err) {
+      console.error('Error adding slot:', err);
+      res.status(500).send('An error occurred while adding the slot');
+    }
+  });
+
+  app.delete('/api/slots/delete', async (req, res) => {
+    const { period, time } = req.body; // Accept period and time from the request body
+  
+    if (!period || !time) {
+      return res.status(400).send('Invalid request. "period" and "time" are required.');
+    }
+  
+    try {
+      const updatedDocument = await Slot.findOneAndUpdate(
+        {},
+        { $pull: { [`${period}.slots`]: { time: time } } }, 
+        { new: true }
+      );
+  
+      if (!updatedDocument) {
+        return res.status(404).send('Slot or period not found');
+      }
+  
+      res.status(200).json(updatedDocument);
+      console.log(`Slot with time "${time}" deleted from "${period}" period.`);
+    } catch (err) {
+      console.error('Error deleting slot:', err);
+      res.status(500).send('Error deleting slot');
+    }
+  });
   
 
 const PORT = 3000;
