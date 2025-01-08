@@ -3,17 +3,22 @@
   flex-direction: column;
   background-color: rgb(235, 233, 233);
   height: 100vh;
+  width: 100%; /* Ensure parent takes full width */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.container {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 20px;
-    /* background-color: #f9f9f9; */
-    background-color: rgb(235, 233, 233);
-    width: 100%;
-  }
+.clinic-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+  background-color: rgb(235, 233, 233);
+  flex-grow: 1; /* Allow container to grow and take remaining space */
+  width: 100%; /* Ensure it spans the full width of the parent */
+  box-sizing: border-box; /* Include padding in width calculations */
+}
   
   .doctors {
     flex: 1; 
@@ -68,6 +73,13 @@
   .evening div {
     flex: 1 1 calc(16.66% - 20px); /* Ensure 6 elements per row, adjust for gap */
     box-sizing: border-box; /* Prevent padding from affecting the width */
+  }
+
+  .inner-slots {
+    display: flex;
+    border: none;
+    align-items: center;
+    justify-content: center;
   }
 
   
@@ -260,8 +272,9 @@
 
   .upper-section {
     display: flex;
-    flex-direction: row;
-    gap: 150px;
+    justify-content: space-between; /* Positions elements at opposite ends */
+    align-items: center; /* Aligns the heading and close button vertically */
+    margin-bottom: 10px; /* Adds space below the header */
   }
 
   .add-doctor {
@@ -314,7 +327,7 @@
   .delete-doctor {
     background-color: white;
     border: none;
-    text-align: right;
+    float: right ;
   }
 
   .delete-doctor:hover {
