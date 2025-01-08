@@ -46,16 +46,20 @@
   .top-button {
     border: none;
     border-radius: 5px;
-    background-color: rgb(164, 164, 231); 
-    font-weight: bold;
-    padding-left: 14px;
-    padding-right: 14px;
-    
+    background-color: #c3cef4; 
+    font-weight: 600;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 16px;
   }
 
   .time {
     text-align: right;
-    font-weight: bold;
+    font-weight: 600;
+    margin-top: 6px;
   }
   
   .modal {
@@ -92,15 +96,19 @@
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd; 
+    font-family: 'Work Sans', sans-serif;
   }
   
   .weather-table td strong {
     font-weight: bold;
+    font-family: 'Work Sans', sans-serif;
   }
 
   .forecast {
     padding: 8px;
     /* border-bottom: 1px solid #ddd;  */
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
   }
 
   .modal-header {
