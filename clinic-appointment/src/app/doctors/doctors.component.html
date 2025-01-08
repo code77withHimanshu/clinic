@@ -69,16 +69,16 @@
           <img [src]="selectedDoctor.image_url" alt="Doctor's Image" class="doctor-image" />
         </div>
         <div>
-          <h2>{{ selectedDoctor.name }}</h2>
-          <p>{{ selectedDoctor.qualification }}</p>
-          <p><strong style="margin-top: 56px; display: block;">{{ selectedDoctor.description }}</strong></p>
+          <h2 style="font-weight: 600; font-size: 24px;">{{ selectedDoctor.name }}</h2>
+          <p style="font-weight: 400; font-size: 16px; color: #a9a9a9;">{{ selectedDoctor.qualification }}</p>
+          <p><strong style="margin-top: 56px; display: block; font-weight: 400; font-size: 16px; color: black;">{{ selectedDoctor.description }}</strong></p>
         </div>
       </div>
       <div class="border-line">
 
       </div>
       <div *ngIf="slots[0]?.morning?.slots?.length > 0 && selectedDoctor">
-        <h3>Morning</h3>
+        <h3 style="font-weight: 600; font-size: 16px; color: black;">Morning</h3>
         <ul class="morning">
           <li *ngFor="let slot of slots[0].morning.slots">
             <button
@@ -93,7 +93,7 @@
       </div>
   
       <div *ngIf="slots[0]?.afternoon?.slots?.length > 0 && selectedDoctor">
-        <h3>Afternoon</h3>
+        <h3 style="font-weight: 600; font-size: 16px; color: black;">Afternoon</h3>
         <ul class="afternoon">
           <li *ngFor="let slot of slots[0].afternoon.slots">
             <button
@@ -108,7 +108,7 @@
       </div>
   
       <div *ngIf="slots[0]?.evening?.slots?.length > 0 && selectedDoctor">
-        <h3>Evening</h3>
+        <h3 style="font-weight: 600; font-size: 16px; color: black;">Evening</h3>
         <ul class="evening">
           <li *ngFor="let slot of slots[0].evening.slots">
             <button

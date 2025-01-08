@@ -228,7 +228,7 @@
   }
   
   .create-doctor-button {
-    background-color: blue;
+    background-color: #3355ec;
     color: white; 
     padding: 10px 15px; 
     border: none; 
@@ -239,7 +239,7 @@
   }
   
   .create-doctor-button:hover {
-    background-color: darkblue; 
+    background-color: blue; 
   }
 
   button {
@@ -266,9 +266,13 @@
   .book {
     align-items: center;
     justify-content: center;
-    background-color: #007acc;
+    background-color: #3355ec;
     color: white;
-    font-size: 28px;
+    font-weight: 600;
+    font-size: 16px;
+    height: 36px;
+    width: 285px;
+    border-radius: 4px;
   }
 
   .book:hover {
@@ -313,7 +317,7 @@
 
   .add-doctor {
     border: none;
-    background-color: lightblue;
+    background-color: #e6eaf8;
   }
 
   .add-doctor:hover {
@@ -333,10 +337,12 @@
     border: none;
     background-color: white;
     font-family: 'Work Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
   }
 
   .select-doctor:hover {
-    background-color: blue;
+    background-color: #3355ec;
     color: white;
     font-family: 'Work Sans', sans-serif;
   }
@@ -351,12 +357,12 @@
   }
 
   .doctors-list:hover {
-    background-color: blue;
+    background-color: #3355ec;
     color: white;
   }
 
   .doctors-list.selected {
-    background-color: blue;
+    background-color: #3355ec;
     color: white;
   }
 
