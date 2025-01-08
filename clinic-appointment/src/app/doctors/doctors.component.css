@@ -262,20 +262,37 @@
     background-color: #007bff;
   }
 
-  .select-doctor {
+  /* .select-doctor {
     background-color: #007acc;
     color: white;
   }
 
   .select-doctor:hover {
     background-color: blue;
+  } */
+
+  .select-doctor {
+    border: none;
+    background-color: white;
   }
+
+  .select-doctor:hover {
+    background-color: blue;
+    color: white;
+  }
+
 
   .doctors-list {
     display: flex;
     align-items: center; 
     justify-content: space-between; 
     padding: 5px; 
+    cursor: pointer;
+  }
+
+  .doctors-list:hover {
+    background-color: blue;
+    color: white;
   }
 
   .delete-doctor {
