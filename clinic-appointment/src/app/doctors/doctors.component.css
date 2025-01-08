@@ -30,6 +30,8 @@
 
   .doctors h2 {
     font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
   }
   
   .slots {
@@ -73,7 +75,7 @@
   }
 
   .border-line {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #a9a9a9;
     margin-bottom: 20px;
   }
 
@@ -124,7 +126,7 @@
   
   .doctors li {
     padding: 5px 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #a9a9a9;
   }
   
   .doctors li:last-child {
@@ -358,6 +360,17 @@
     margin-bottom: 10px; /* Adds space below the header */
   }
 
+  .lower-section {
+    display: flex;
+    justify-content: space-between; /* Positions elements at opposite ends */
+    align-items: center; /* Aligns the heading and close button vertically */
+    border-top: 1px solid #a9a9a9;
+    position: relative; /* Optional, to help with any positioning adjustments */
+    bottom: 0; /* If you want to pin it to the bottom of its container */
+    margin-top: 180px;
+    overflow-y: auto;
+  }
+
   .add-doctor {
     border: none;
     background-color: #e6eaf8;
@@ -417,6 +430,35 @@
 
   .delete-doctor:hover {
     background-color: rgb(214, 193, 193);
+  }
+
+  .add-slot {
+    background-color: #e6eaf8;
+    border: none;
+    border-radius: 4px;
+  }
+
+  .delete-slot {
+    height: 28px;
+    width: 203px;
+    border-radius: 4px;
+    opacity: 60%;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background-color: #ec3c33;
+  }
+
+  .delete-slot button.disabled {
+    height: 28px;
+    width: 203px;
+    border: 1px solid #a9a9a9;
+    background-color: white;
+    color: #a9a9a9;
+    border-radius: 4px;
+    cursor: not-allowed;
+    font-weight: 600;
+    font-size: 16px;
   }
 
 
