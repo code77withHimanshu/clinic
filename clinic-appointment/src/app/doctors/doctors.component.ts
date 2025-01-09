@@ -4,6 +4,7 @@ import { SlotService } from '../slot.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TopBarComponent } from '../top-bar/top-bar.component';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-doctors',
@@ -20,6 +21,7 @@ export class DoctorsComponent implements OnInit {
   constructor(
     private doctorService: DoctorService,
     private slotService: SlotService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -173,7 +175,9 @@ bookAppointment(): void {
         updatedSlots => {
           this.slots = updatedSlots; // Update the slots list with the response
           alert('Slot added successfully!');
+          this.closeSlotModal();
           this.getSlots();
+          this.cdr.detectChanges();
           // Reset the form fields
           this.period = '';
           this.newSlot = {
@@ -199,6 +203,7 @@ bookAppointment(): void {
   
       this.slotService.deleteSlot(period, slotTime).subscribe(() => {
         this.getSlots(); // Fetch the updated list of slots
+        this.cdr.detectChanges();
       });
     }
   }
